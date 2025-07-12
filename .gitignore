@@ -1,0 +1,18 @@
+# Ignore virtual environment
+env1/
+env/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# VS Code settings (optional)
+.vscode/
+
+# Ignore Jupyter notebook checkpoints (if using notebooks)
+.ipynb_checkpoints/
+
+# Ignore data files (optional, if large or personal)
+*.csv
+*.json
+*.h5
