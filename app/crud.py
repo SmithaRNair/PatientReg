@@ -36,8 +36,8 @@ def patch_patient(db:Session, patient_id:int,patient_update:schemas.PatientParti
     if not patient:
         return None
     update_dict=patient_update.model_dump(exclude_unset=True)
-    for key,Value in update_dict.items():
-        setattr(patient,key,Value)
+    for key,value in update_dict.items():
+        setattr(patient,key,value)
     db.commit()
     db.refresh(patient)
     return patient    

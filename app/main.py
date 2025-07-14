@@ -46,5 +46,5 @@ def delete_patient(patient_id:int, db:Session=Depends(get_db)):
 def update_partial_patient(patient_id:int,patient_update:schemas.PatientPartialUpdate,db:Session=Depends(get_db)):
     updated_patient=crud.patch_patient(db,patient_id,patient_update)
     if updated_patient is None:
-        raise HTTPException(status_code=404,detail="patient Not Found")
+        raise HTTPException(status_code=404,detail="Patient Not Found")
     return updated_patient         
