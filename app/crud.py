@@ -29,5 +29,17 @@ def delete_patient(db:Session,patient_id:int):
     if db_patient:
         db.delete(db_patient)
         db.commit()
-    return db_patient        
+    return db_patient     
+
+def patch_patient(db:Session, patient_id:int,patient_update:schemas.PatientPartialUpdate):
+    patient=db.query(models.Patient).filter(models.Patient.id==patient_id).first()
+    if not patient:
+        return None
+    update_dict=patient_update.model_dump(exclude_unset=True)
+    for key,Value in update_dict.items():
+        setattr(patient,key,Value)
+    db.commit()
+    db.refresh(patient)
+    return patient    
+      
             

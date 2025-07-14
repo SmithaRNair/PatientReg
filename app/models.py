@@ -9,4 +9,6 @@ class Patient(Base):
     gender=Column(String(7))
     doctor=Column(String(30))
     disease=Column(String(25)) 
+    phone_no=Column(String(15),nullable=True)
+    
     
